@@ -1,0 +1,29 @@
+{
+  "name": "whisperapp",
+  "version": "0.0.1",
+  "description": "A disposable chatroom, including mobile-first client and Socket.IO/Express based server.",
+  "keywords": [
+    "express",
+    "Node.js",
+    "socket.io",
+    "disposable",
+    "chatroom"
+  ],
+  "author": {
+    "name": "Chris Atkin",
+    "email": "atkinchris@gmail.com",
+    "url":  "http://www.chrisatkin.co.uk/"
+  },
+  "homepage": "http://www.whisperchat.co.uk/",
+  "engines": {
+    "node": ">= 0.6.0",
+    "npm": ">= 1.0.0"
+  },
+  "dependencies": {
+    "express": "*",
+    "socket.io": "*",
+    "hashids": "*"	
+  },
+  "main": "server.js"
+}
+
