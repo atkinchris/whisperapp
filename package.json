@@ -22,7 +22,9 @@
   "dependencies": {
     "express": "*",
     "socket.io": "*",
-    "hashids": "*"	
+    "hashids": "*",
+    "underscore": "*",
+	"jade": "*"
   },
   "main": "server.js"
 }

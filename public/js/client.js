@@ -1,11 +1,10 @@
 function init() {
 
-	var serverBaseUrl = document.domain;	
+	//var serverBaseUrl = document.domain;
 	
-	var socket = io.connect(serverBaseUrl);
-	
-	var sessionId = '';
-	var roomid = '';
+	//var socket = io.connect(serverBaseUrl);
+
+	var socket = io.connect('127.0.0.1:8080');
 
 	function sendMessage() {
 		var outgoingMessage = $('#outgoingMessage').val();
@@ -13,7 +12,7 @@ function init() {
 			url:  '/message',
 			type: 'POST',
 			dataType: 'json',
-			data: {message: outgoingMessage, id: sessionId, roomid: roomid}
+			data: {message: outgoingMessage, id: sessionId}
 		});
 		$('#outgoingMessage').val('');
 	}
@@ -40,6 +39,7 @@ function init() {
 	
 	function create() {
 		socket.emit('create');
+		alert(socket.id);
 	}
 
 	function logout() {
@@ -49,7 +49,7 @@ function init() {
 	}
 	
 	socket.on('connect', function () {
-		sessionId = socket.socket.sessionid;
+		var sessionId = socket.socket.sessionid;
 		console.log('Connected ' + sessionId);
 	});
 
@@ -68,6 +68,10 @@ function init() {
 		
 	socket.on('error', function (e) {
 		alert(e);
+	});
+
+	socket.on('roomcreated', function (roomid) {
+		alert(roomid);
 	});
 		
 	$('#outgoingMessage').on('keydown', outgoingMessageKeyDown);
