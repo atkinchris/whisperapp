@@ -17,11 +17,9 @@ public/*.html
 public/js/*
 public/css/*
 results
-views
 
 !public/js/client.js
 !public/css/styles.css
-
 
 # Windows image file caches
 Thumbs.db

@@ -1,0 +1,13 @@
+doctype 5
+html
+	head
+		script(type='text/javascript')
+			var roomid = "#{roomid}";
+		script(src='/js/socket.io.min.js')
+		script(src='/js/jquery-1.9.1.min.js')
+		script(src='/js/client.js')
+		title #{pagetitle} #{roomid}
+	body
+		form#messageForm
+			textarea(rows="4", cols="50", placeholder="Say something!", maxlength=200)#message
+			input(type="button", value="Send")#send
