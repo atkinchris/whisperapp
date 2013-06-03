@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+	.row
+		h1 Welcome to Whisper Chat
+	.row
+		form(name='join-room', action='/', method='get')
+			input(type='text', name='id', placeholder='Enter Room Name!')
+			br
+			input(type='submit', value='Join').button
+		form(name='create-room', action='/create', method='get')
+			input(type='submit', value='Create').button

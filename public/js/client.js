@@ -27,9 +27,28 @@ function init() {
 			dataType: 'json',
 			data: {message: message, id: sessionId, roomid: roomid}
 		});
+		$('#message').val('');
+	}
+
+	function outgoingMessageKeyDown(event) {
+		if (event.which == 13) {
+			event.preventDefault();
+			if ($('#message').val().trim().length <= 0) {
+			return;
+		}
+		sendMessage();
+		$('#message').val('');
+		}
+	}
+
+	function outgoingMessageKeyUp() {
+		var outgoingMessageValue = $('#message').val();
+		$('#send').attr('disabled', (outgoingMessageValue.trim()).length > 0 ? false : true);
 	}
 
 	$('#send').on('click', sendMessage);
+	$('#message').on('keydown', outgoingMessageKeyDown);
+	$('#message').on('keyup', outgoingMessageKeyUp);
 }
 
 $(document).on('ready', init);

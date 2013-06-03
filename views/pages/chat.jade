@@ -1,0 +1,18 @@
+extends ../layout
+
+append scripts
+	script.
+		var roomid = "#{roomid}";
+	script(src='/js/client.js')
+
+block content
+	.row
+		h1 Welcome to Whisper Chat
+		h3 You're in room "#{roomid}"
+		p Share this with your partner to let them join.
+	.row
+		form#messageForm
+			textarea(rows="4", cols="50", placeholder="Say something!", maxlength=200)#message
+			input(type="button", value="Send")#send.button.small
+		hr
+		#messages

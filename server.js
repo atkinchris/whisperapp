@@ -11,9 +11,9 @@ var salt = 'hamsters',
 
 app.set('port', 80);
 
-app.set("views", __dirname + "/views");
+app.set('views', __dirname + '/views/pages');
 
-app.set("view engine", "jade");
+app.set('view engine', 'jade');
 
 app.use(express.bodyParser());
 
@@ -25,18 +25,18 @@ io.sockets.on('connection', function (socket) {
  	socket.on('subscribe', function(data) { socket.join(data.roomid); })
 });
 
-app.post("/message", function(request, response) {
+app.post('/message', function(request, response) {
 	var message = request.body.message;
 	var id = request.body.id;
 	var roomid = request.body.roomid;
 
 	if(_.isUndefined(message) || _.isEmpty(message.trim())) {
-	return response.json(400, {error: "Message is invalid"});
+	return response.json(400, {error: 'Message is invalid'});
 	}
 
-	io.sockets.in(roomid).emit("incomingMessage", {message: message, id: id});
+	io.sockets.in(roomid).emit('incomingMessage', {message: message, id: id});
 
-	response.json(200, {message: "Message received"});
+	response.json(200, {message: 'Message received'});
 });
 
 app.get('/', function(req, res) {
