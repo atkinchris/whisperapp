@@ -1,1 +1,11 @@
-.you {color: red;}
+.you {
+	color: red;
+}
+
+#messages li {
+	list-style-type: none;
+}
+
+header {
+	background-color: #222;
+}

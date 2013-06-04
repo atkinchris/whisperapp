@@ -7,12 +7,19 @@ append scripts
 
 block content
 	.row
-		h1 Welcome to Whisper Chat
-		h3 You're in room "#{roomid}"
-		p Share this with your partner to let them join.
+		.large-9.large-centered.columns
+			h3 You're in room <a href="/?id=#{roomid}">#{roomid}</a>
+			p.
+				Share this with your partner to let them join.
+				When you close this window, all messages will be deleted!
 	.row
-		form#messageForm
-			textarea(rows="4", cols="50", placeholder="Say something!", maxlength=200)#message
-			input(type="button", value="Send")#send.button.small
-		hr
-		#messages
+		.large-9.large-centered.columns.panel
+			#messages
+	br
+	form#messageForm
+		.row
+			.large-9.large-centered.columns
+				.small-9.columns
+					textarea(rows="4", cols="50", placeholder="Say something!", maxlength=200)#message
+				.small-3.columns
+					input(type="button", value="Send")#send.button.expand

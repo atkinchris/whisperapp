@@ -1,8 +1,17 @@
 !!! 5
 html
-	include includes/header
+	head
+		include includes/header
+
+	header
+		.row
+			.large-12.columns
+				h3: a(href='/') Whisper Chat
 
 	body
 		block content
+	footer
+		block footer
+		include includes/footer
 
-	include includes/footer
+	

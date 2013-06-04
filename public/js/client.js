@@ -16,7 +16,7 @@ function init() {
 		var d = new Date();
 		var timestamp = ('0' + d.getHours()).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2) + ':' + ('0' + d.getSeconds()).slice(-2);
 		var id = data.id;
-	    $('#messages').append('<span class=' + (id === sessionId ? 'you' : '') + '><br /><b>&#91;' + timestamp + '&#93;</b> ' + message);
+	    $('#messages').append('<li class=' + (id === sessionId ? 'you' : '') + '><b>&#91;' + timestamp + '&#93;</b> ' + message + '</li>');
 	});
 
 	function sendMessage() {

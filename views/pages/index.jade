@@ -1,12 +1,22 @@
 extends ../layout
 
 block content
+
 	.row
-		h1 Welcome to Whisper Chat
+		.large-9.large-centered.columns
+			h1 Welcome to Whisper Chat
 	.row
-		form(name='join-room', action='/', method='get')
-			input(type='text', name='id', placeholder='Enter Room Name!')
-			br
-			input(type='submit', value='Join').button
-		form(name='create-room', action='/create', method='get')
-			input(type='submit', value='Create').button
+		.large-9.large-centered.columns
+			.row
+				.large-5.columns
+					p Here you can create or join disposable, anonymous chatrooms.
+				.large-7.columns
+					.row
+						.large-12.columns.panel
+							form(name='join-room', action='/', method='get')
+								input(type='text', name='id', placeholder='Enter Room Name!')
+								input(type='submit', value='Join').button.expand
+					.row
+						.large-12.columns.panel
+								form(name='create-room', action='/create', method='get')
+									input(type='submit', value='Create').button.expand
